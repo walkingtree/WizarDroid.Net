@@ -1,2 +1,2 @@
 # WizarDroid.Net
-Android Wizard extension for Xamarin
+Xamarin.Android wizard extension
