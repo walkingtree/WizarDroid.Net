@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>1.0.0.1</version>
     <title>WizarDroid.NET</title>
     <authors>Ananth Racherla</authors>
     <owners>Ananth Racherla</owners>
