@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>WizarDroid.NET</title>
+    <authors>Ananth Racherla</authors>
+    <owners>Ananth Racherla</owners>
+	<projectUrl>https://github.com/walkingtree/WizarDroid.Net</projectUrl>
+    <licenseUrl>https://github.com/walkingtree/WizarDroid.Net/blob/master/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WizarDroid.NET is a lightweight library that makes it easy to implement wizards in Xamarin.Android applications.</description>
+    <releaseNotes>Pilot release of WizarDroid.NET</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Xamarin.Android</tags>
+    <dependencies>
+      <dependency id="Xamarin.Android.Support.v4" version="22.2.1.0" />
+    </dependencies>	
+  </metadata>
+  <files>
+    <file src="bin\Release\WizarDroid.NET.dll" target="lib\MonoAndroid44" />
+   </files>  
+</package>
