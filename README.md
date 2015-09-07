@@ -12,11 +12,20 @@ Key advantages:
 
 Refer to the bundle sample project for the implementation details.   Updated documentation coming soon...
 
+Download
+----------
+Binaries of this project are available on Nuget (https://www.nuget.org/packages/WizarDroid.NET/)
+
+To install WizarDroid.NET dlls, run the following command in the Package Manager Console:
+
+PM> Install-Package WizarDroid.NET
+
 Credits
 -------
 
-WizarDroid.NET is maintained by Ananth Racherla.  The work here has been ported from  WizarDroid written in Java by Nimrod Dayan ([CodePond.org](http://www.codepond.org)).
-Please report all issues on [Github](https://github.com/walkingtree/WizarDroid.Net/issues).
+WizarDroid.NET is maintained by Ananth Racherla. Please report all issues on [Github](https://github.com/walkingtree/WizarDroid.Net/issues).
+
+The work here has been ported from  WizarDroid written in Java by Nimrod Dayan ([CodePond.org](http://www.codepond.org)).
 
 Gitignore courtesy [gitignore](https://github.com/github/gitignore).
 
