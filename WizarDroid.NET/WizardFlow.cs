@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 using Android.OS;
 
 namespace WizarDroid.NET
@@ -12,11 +11,22 @@ namespace WizarDroid.NET
     {
         private IList<StepMetaData> Steps { get; set; }
 
-        public int StepsCount { get { return Steps == null ? 0 : Steps.Count; } }
+        /// <summary>
+        /// Total number of steps in this wizard, includes Required Steps
+        /// </summary>
+        public int TotalSteps { get { return Steps == null ? 0 : Steps.Count; } }
+
+        /// <summary>
+        /// Number of steps upto the last required and completed step.. This is used to restrict the view pager to the last required step that is yet
+        /// to be completed
+        /// </summary>
+        public int StepsCount { get; private set; }
+
 
         private WizardFlow(IList<StepMetaData> steps)
         {
             Steps = steps;
+            SetStepCount();
         }
 
         /// <summary>
@@ -33,7 +43,7 @@ namespace WizarDroid.NET
             //Calculate the cut off step by finding the last step which is required and incomplete
             foreach (var stepMetaData in this.Steps) {
                 cutOffFlow.Add(stepMetaData.StepClass);
-                //if (!stepMetaData.Completed && stepMetaData.Required) break; //Can't do this because the Xamarin viewpager seems to query forward
+                if (!stepMetaData.Completed && stepMetaData.Required) break;
             }
 
             return cutOffFlow;
@@ -45,6 +55,8 @@ namespace WizarDroid.NET
                 throw new ArgumentOutOfRangeException("position", "Position param is out of range or no steps specified");
 
             Steps[position].Completed = stepCompleted;
+
+            if (Steps[position].Required) SetStepCount(); //If this is a required step, then we need to update our counts
         }
 
         /// <summary>
@@ -88,6 +100,24 @@ namespace WizarDroid.NET
             }
         }
 
+        /// <summary>
+        /// Helper function to compute the step count
+        /// </summary>
+        private void SetStepCount()
+        {
+            if (Steps == null) {
+                StepsCount = 0;
+                return;
+            }
+
+            int count = 0;
+            foreach (var stepMetaData in this.Steps) {
+                ++count;
+                if (!stepMetaData.Completed && stepMetaData.Required) break;
+            }
+
+            StepsCount = count;
+        }
 
         /// <summary>
         /// Builder for WizardFlow. Use this class to build an instance of WizardFlow.

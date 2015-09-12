@@ -193,7 +193,7 @@ namespace WizarDroid.NET
 
         public bool IsLastStep
         {
-            get { return ViewPager.CurrentItem == WizardFlow.StepsCount - 1; }
+            get { return ViewPager.CurrentItem == WizardFlow.TotalSteps - 1; }
 
         }
 
