@@ -33,3 +33,5 @@ License
 -------
 
 WizarDroid.Net is available under the [MIT License](https://github.com/walkingtree/WizarDroid.Net/blob/master/license).
+
+Copyright(c) [Walking Tree](http://walkingtree.in) and [Ananth Racherla](https://github.com/ananth-racherla)
