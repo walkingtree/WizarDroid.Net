@@ -10,7 +10,7 @@ Key advantages:
 * Supports the concept of required steps, preventing the user from navigating forward until a necessary action is completed.
 * Customizable, allows definition of additional layouts.
 
-Refer to the bundle sample project for the implementation details.   Updated documentation coming soon...
+Refer to the bundle sample project for the implementation details.
 
 Download
 ----------
@@ -18,7 +18,9 @@ Binaries of this project are available on Nuget (https://www.nuget.org/packages/
 
 To install WizarDroid.NET dlls, run the following command in the Package Manager Console:
 
+```
 PM> Install-Package WizarDroid.NET
+```
 
 Credits
 -------
