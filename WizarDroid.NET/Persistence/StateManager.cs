@@ -59,6 +59,9 @@ namespace WizarDroid.NET.Persistence
                     else if (field.FieldType is Java.IO.ISerializable) {
                         args.PutSerializable(field.Name, ContextBundle.GetSerializable(field.Name));
                     }
+                    else if (field.FieldType.IsValueType == false) { //Runtime serialization for reference type.. use json.net serialization
+                        args.PutString(field.Name, ContextBundle.GetString(field.Name));
+                    }
                     else {
                         //TODO: Add support for arrays
                         throw new ArgumentException(string.Format("Unsuported type. Cannot pass value to variable {0} of step {1}. Variable type is unsuported.",
@@ -113,11 +116,14 @@ namespace WizarDroid.NET.Persistence
                     else if (field.FieldType == typeof(char)) {
                         ContextBundle.PutChar(field.Name, (char)field.GetValue(step));
                     }
-                    else if (typeof(Parcelable).IsAssignableFrom(field.FieldType)) {
+                    else if (typeof(Parcelable).IsAssignableFrom(field.FieldType)) { //Support for Pacelable to be deprecated
                         ContextBundle.PutParcelable(field.Name, field.GetValue(step) as IParcelable);
                     }
-                    else if (field.FieldType is Java.IO.ISerializable) {
-                        ContextBundle.PutSerializable(field.Name, field.GetValue(step) as Java.IO.ISerializable);
+                    else if (field.FieldType is Java.IO.ISerializable) { //Support for Java.IO.ISerializable to be deprecated
+                        ContextBundle.PutSerializable(field.Name, field.GetValue(step) as Java.IO.ISerializable); 
+                    }
+                    else if (field.FieldType.IsValueType == false) { //Runtime serialization for reference type.. use json.net serialization
+                        ContextBundle.PutString(field.Name, Newtonsoft.Json.JsonConvert.SerializeObject(field.GetValue(step)));
                     }
                     else {
                         //TODO: Add support for arrays

@@ -40,6 +40,11 @@ namespace WizarDroid.NET.Persistence
             else if (type is Java.IO.ISerializable) {
                 return args.GetSerializable(key);
             }
+            else if (type.IsValueType == false) { //Runtime serialization for reference type.. use json.net serialization
+                var value = args.GetString(key);
+                if (string.IsNullOrWhiteSpace(value)) return null;
+                return Newtonsoft.Json.JsonConvert.DeserializeObject(value, type);
+            }
             else {
                 //TODO: Add support for arrays
                 throw new ArgumentException(string.Format("Unsuported type. Cannot pass value to variable {0} of step {1}. Variable type is unsuported.",

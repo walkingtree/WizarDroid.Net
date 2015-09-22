@@ -11,10 +11,7 @@ namespace WizarDroid.NET_Sample.Wizards
     public class FormStep1 : WizardStep
     {
         [WizardState]
-        public string FirstName;
-
-        [WizardState]
-        public string LastName;
+        public Person Person;
 
         private EditText firstNameEt;
         private EditText lastNameEt;
@@ -28,8 +25,10 @@ namespace WizarDroid.NET_Sample.Wizards
             firstNameEt = view.FindViewById<EditText>(Resource.Id.firstnameField);
             lastNameEt = view.FindViewById<EditText>(Resource.Id.lastnameField);
 
-            firstNameEt.Text = FirstName;
-            lastNameEt.Text = LastName;
+            if (Person != null) {
+                firstNameEt.Text = Person.FirstName;
+                lastNameEt.Text = Person.LastName;
+            }
 
             return view;
         }
@@ -42,8 +41,11 @@ namespace WizarDroid.NET_Sample.Wizards
 
         void BindDataFields()
         {
-            FirstName = firstNameEt.Text;
-            LastName = lastNameEt.Text;
+
+            if (Person != null) {
+                Person.FirstName = firstNameEt.Text;
+                Person.LastName = lastNameEt.Text;
+            }
         }
     }
 }
