@@ -1,26 +1,24 @@
+using System.Globalization;
 using Android.Widget;
 using WizarDroid.NET;
 using WizarDroid.NET.Persistence;
 
 namespace WizarDroid.NET_Sample.Wizards
 {
-    public class Step1 : WizardStep
+    public class CustomerWizardStep1 : WizardStep
     {
         [WizardState]
         public Customer Cust;
 
         EditText FirstNameTxt; EditText LastNameTxt; EditText DobTxt;
 
-        public object LockObj = new object();
-        public bool StepCompleted = false;
-
-        public Step1()
+        public CustomerWizardStep1()
         {
             StepExited += OnStepExited;
         }
 
-        
-        public override Android.Views.View OnCreateView(Android.Views.LayoutInflater inflater, Android.Views.ViewGroup container, 
+
+        public override Android.Views.View OnCreateView(Android.Views.LayoutInflater inflater, Android.Views.ViewGroup container,
             Android.OS.Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.CustomerWizardStep1, container, false);
@@ -49,9 +47,9 @@ namespace WizarDroid.NET_Sample.Wizards
 
         private void Validate()
         {
-            bool valid = true; 
+            bool valid = true;
 
-            if(string.IsNullOrWhiteSpace(FirstNameTxt.Text) || FirstNameTxt.Text.Length < 3){
+            if (string.IsNullOrWhiteSpace(FirstNameTxt.Text) || FirstNameTxt.Text.Length < 3) {
                 FirstNameTxt.Error = "Invalid first name, must be at least 3 characters";
                 valid = false;
             }
@@ -68,7 +66,8 @@ namespace WizarDroid.NET_Sample.Wizards
             }
 
             System.DateTime result;
-            if (string.IsNullOrWhiteSpace(DobTxt.Text) || !System.DateTime.TryParse(DobTxt.Text, out result)) {
+            if (string.IsNullOrWhiteSpace(DobTxt.Text) || 
+                !System.DateTime.TryParseExact(DobTxt.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out result)) {
                 DobTxt.Error = "Invalid date of birth";
                 valid = false;
             }
@@ -76,17 +75,10 @@ namespace WizarDroid.NET_Sample.Wizards
                 DobTxt.Error = null;
             }
 
-            lock (LockObj) {
-
-                if (valid && StepCompleted == false) {
-                    NotifyCompleted(); // All the input is valid.. Set the step as completed
-                    StepCompleted = true;
-                }
-                else if (!valid && StepCompleted == true) {
-                    NotifyIncomplete();
-                    StepCompleted = false;
-                }
-            }
+            if (valid)
+                NotifyCompleted(); // All the input is valid.. Set the step as completed
+            else
+                NotifyIncomplete();
         }
     }
 }

@@ -16,9 +16,9 @@ namespace WizarDroid.NET_Sample.Wizards
         public override WizarDroid.NET.WizardFlow OnSetup()
         {
             return new WizarDroid.NET.WizardFlow.Builder()
-                                                .AddStep(new Step1(), true/*isRequired*/)
-                                                .AddStep(new Step2(), true/*isRequired*/)
-                                                .AddStep(new Step3(), true/*isRequired*/)
+                                                .AddStep(new CustomerWizardStep1(), true/*isRequired*/)
+                                                .AddStep(new CustomerWizardStep2(), true/*isRequired*/)
+                                                .AddStep(new CustomerWizardStep3(), true/*isRequired*/)
                                                 .Create();
         }
 

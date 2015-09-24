@@ -7,16 +7,12 @@ using WizarDroid.NET.Persistence;
 
 namespace WizarDroid.NET_Sample.Wizards
 {
-    public class Step2 : WizardStep
+    public class CustomerWizardStep2 : WizardStep
     {
         [WizardState]
         public Customer Cust;
 
-        public object LockObj = new object();
-        public bool StepCompleted = false;
-
-
-        public Step2()
+        public CustomerWizardStep2()
         {
             StepExited += OnStepExited;
         }
@@ -69,18 +65,10 @@ namespace WizarDroid.NET_Sample.Wizards
                 AddrZipCode.Error = null;
             }
 
-            lock (LockObj) {
-
-                if (valid && StepCompleted == false) {
-                    NotifyCompleted(); // All the input is valid.. Set the step as completed
-                    StepCompleted = true;
-                }
-                else if (!valid && StepCompleted == true) {
-                    NotifyIncomplete();
-                    StepCompleted = false;
-                }
-            }
-
+            if (valid)
+                NotifyCompleted(); // All the input is valid.. Set the step as completed
+            else
+                NotifyIncomplete();
         }
 
         void OnStepExited(StepExitCode exitCode)
