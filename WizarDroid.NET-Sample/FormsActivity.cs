@@ -3,7 +3,7 @@ using Android.OS;
 
 namespace WizarDroid.NET_Sample
 {
-    [Activity(Label = "FormsActivity")]
+    [Activity(Label = "Simple Form Wizard")]
     public class FormsActivity : Android.Support.V4.App.FragmentActivity
     {
         protected override void OnCreate(Bundle bundle)

@@ -21,7 +21,8 @@ namespace WizarDroid.NET_Sample
 
             Samples = new Sample[] {
                 new Sample("Tutorial Wizard", typeof(TutorialActivity)),
-                new Sample("Forms Wizard", typeof(FormsActivity))
+                new Sample("Forms Wizard", typeof(FormsActivity)),
+                new Sample("Customer Wizard", typeof(CustomerActivity)),
             };
 
             this.ListAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, Android.Resource.Id.Text1, Samples);

@@ -12,7 +12,10 @@ namespace WizarDroid.NET_Sample.Wizards
     public class FormStep3 : WizardStep
     {
         [WizardState]
-        public Person Person;
+        public string FirstName;
+
+        [WizardState]
+        public string LastName;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -21,10 +24,8 @@ namespace WizarDroid.NET_Sample.Wizards
             var firstNameText = view.FindViewById<TextView>(Resource.Id.firstname);
             var lastNameText = view.FindViewById<TextView>(Resource.Id.lastname);
 
-            if (Person != null) {
-                firstNameText.Text = Person.FirstName;
-                lastNameText.Text = Person.LastName;
-            }
+            firstNameText.Text = FirstName;
+            lastNameText.Text = LastName;
 
             return view;
         }

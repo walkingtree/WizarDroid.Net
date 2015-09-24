@@ -13,7 +13,10 @@ namespace WizarDroid.NET_Sample.Wizards
     public class FormStep2 : WizardStep
     {
         [WizardState]
-        public Person Person;
+        public string FirstName;
+
+        [WizardState]
+        public string LastName;
 
         [WizardState]
         public bool Agreed = false;
@@ -27,9 +30,7 @@ namespace WizarDroid.NET_Sample.Wizards
 
             var firstNameText = view.FindViewById<TextView>(Resource.Id.firstname_form2);
 
-            if (Person != null) {
-                firstNameText.Text = String.Format("Hello {0},", Person.FirstName);
-            }
+            firstNameText.Text = String.Format("Hello {0},", FirstName);
 
             checkBox.CheckedChange += checkBox_CheckedChange;
 

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.0.3-rc1</version>
+    <version>1.0.0.3-rc2</version>
     <title>WizarDroid.NET</title>
     <authors>Ananth Racherla</authors>
     <owners>Ananth Racherla</owners>
@@ -10,9 +10,8 @@
     <licenseUrl>https://github.com/walkingtree/WizarDroid.Net/blob/master/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WizarDroid.NET is a lightweight library that makes it easy to implement wizards in Xamarin.Android applications.</description>
-    <releaseNotes>- Updated Xamarin Android Suport v4 library dependency  
-- Added Support for Serialization of Complex types. The Java.Io.Serializable and Parcelable interface support to be deprecated.  
-- Includes additional dependency to Newtonsoft.json, required for complex type serialization.  
+    <releaseNotes>- Fixed the issue with the ViewPager getting slammed due to pre-mature Step Completion events.  
+    - Added a Customer wizard sample project to illustrate the use of serialization to persit complex types.  
     </releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Xamarin.Android</tags>

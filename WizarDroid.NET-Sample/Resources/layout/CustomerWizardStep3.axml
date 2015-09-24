@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Shipping Address:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:capitalize="none" />
+    <CheckBox
+        android:text="Use Billing Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chkUseBill"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shipLine1"
+        android:hint="Address Line 1"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shipLine2"
+        android:hint="Address Line 2"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shipCity"
+        android:hint="City"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shipState"
+        android:hint="State" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shipZip"
+        android:hint="ZipCode"
+        android:paddingBottom="10dp" />
+</LinearLayout>

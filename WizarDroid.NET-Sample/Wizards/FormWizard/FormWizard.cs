@@ -14,7 +14,10 @@ namespace WizarDroid.NET_Sample
         // Variables tagged with WizardStateAttribute are used to perist context collected from the Wizard Steps/
         // NOTE: Wizard State Variable names are unique and therefore must have the same name and type wherever you wish to use them.
         [WizardState]
-        public Person Person = new Person { FirstName = "Walking", LastName = "Tree" };
+        public string FirstName = "Walking";
+
+        [WizardState]
+        public string LastName = "Tree";
 
         [WizardState]
         public bool Agreed = false;
@@ -48,7 +51,7 @@ namespace WizarDroid.NET_Sample
         /// </summary>
         void OnWizardComplete()
         {
-            Android.Util.Log.Info("FormWizard", string.Format("The full name is {0} {1}", Person.FirstName, Person.LastName)); //... Access context variables here before terminating the wizard
+            Android.Util.Log.Info("FormWizard", string.Format("The full name is {0} {1}", FirstName, LastName)); //... Access context variables here before terminating the wizard
 
             Activity.Finish(); //Store the data in the DB or pass it back to the calling activity
         }

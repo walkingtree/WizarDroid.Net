@@ -26,6 +26,10 @@ namespace WizarDroid.NET
     {
         public event OnExitHandler StepExited;
 
+        //We will use the lockobject to sync the notify events -- avoid uncessary spamming if the event has already once been raised
+        private object LockObject = new object();
+        private bool StepCompleted = false;
+
         /// <summary>
         /// The wizard triggers OnExit when the user scrolls forward or backward.  Trigger the step exit event passing on the exit code to underlying
         /// custom implementations
@@ -42,7 +46,12 @@ namespace WizarDroid.NET
         /// </summary>
         public void NotifyCompleted()
         {
-            MessageBus.GetInstance().Publish(new StepCompletedEvent(true, this/*wizardStep*/));
+            lock (LockObject) {
+                if (StepCompleted == false) { //Step was not marked complete prior to this call, so raise the step completion event
+                    MessageBus.GetInstance().Publish(new StepCompletedEvent(true, this/*wizardStep*/));
+                    StepCompleted = true;
+                }
+            }
         }
 
         /// <summary>
@@ -50,7 +59,12 @@ namespace WizarDroid.NET
         /// </summary>
         public void NotifyIncomplete()
         {
-            MessageBus.GetInstance().Publish(new StepCompletedEvent(false, this/*wizardStep*/));
+            lock (LockObject) {
+                if (StepCompleted == true) { //Step was previously marked complete.. We are reversing the call, so raise the event
+                    MessageBus.GetInstance().Publish(new StepCompletedEvent(false, this/*wizardStep*/));
+                    StepCompleted = false;
+                }
+            }
         }
 
 

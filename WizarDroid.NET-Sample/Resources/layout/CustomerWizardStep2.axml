@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Billing Address:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp" />
+    <EditText
+        android:inputType="textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/billLine1"
+        android:hint="Address Line 1"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/billLine2"
+        android:hint="Address Line 2"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/billCity"
+        android:hint="City"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/billState"
+        android:hint="State"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/billZip"
+        android:hint="ZipCode"
+        android:paddingBottom="10dp" />
+</LinearLayout>

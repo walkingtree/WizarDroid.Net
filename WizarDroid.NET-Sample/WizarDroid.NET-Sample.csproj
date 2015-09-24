@@ -67,6 +67,10 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -76,19 +80,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerActivity.cs" />
     <Compile Include="FormsActivity.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Person.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TutorialActivity.cs" />
-    <Compile Include="Wizards\FormWizard.cs" />
-    <Compile Include="Wizards\Steps\FormStep1.cs" />
-    <Compile Include="Wizards\Steps\FormStep2.cs" />
-    <Compile Include="Wizards\Steps\FormStep3.cs" />
-    <Compile Include="Wizards\Steps\TutorialStep1.cs" />
-    <Compile Include="Wizards\Steps\TutorialStep2.cs" />
-    <Compile Include="Wizards\TutorialWizard.cs" />
+    <Compile Include="Wizards\CustomerWizard\Customer.cs" />
+    <Compile Include="Wizards\CustomerWizard\CustomerWizard.cs" />
+    <Compile Include="Wizards\CustomerWizard\CustomerWizardStep1.cs" />
+    <Compile Include="Wizards\CustomerWizard\CustomerWizardStep2.cs" />
+    <Compile Include="Wizards\CustomerWizard\CustomerWizardStep3.cs" />
+    <Compile Include="Wizards\FormWizard\FormWizard.cs" />
+    <Compile Include="Wizards\FormWizard\FormStep1.cs" />
+    <Compile Include="Wizards\FormWizard\FormStep2.cs" />
+    <Compile Include="Wizards\FormWizard\FormStep3.cs" />
+    <Compile Include="Wizards\TutorialWizard\TutorialStep1.cs" />
+    <Compile Include="Wizards\TutorialWizard\TutorialStep2.cs" />
+    <Compile Include="Wizards\TutorialWizard\TutorialWizard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -112,6 +121,12 @@
     <AndroidResource Include="Resources\layout\formtest.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\CustomerWizardStep1.axml" />
+    <AndroidResource Include="Resources\layout\CustomerWizardStep2.axml" />
+    <AndroidResource Include="Resources\layout\CustomerWizardStep3.axml" />
+    <AndroidResource Include="Resources\layout\CustomerWizardActivity.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\tutorial.axml" />
@@ -131,6 +146,7 @@
       <Name>WizarDroid.NET</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
