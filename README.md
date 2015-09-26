@@ -14,7 +14,7 @@ Refer to the bundle sample project for the implementation details.
 
 Demo Video
 ----------
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/GmEAbS43CGI/0.jpg)](https://www.youtube.com/embed/GmEAbS43CGI)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/GmEAbS43CGI/0.jpg)](https://www.youtube.com/watch?v=GmEAbS43CGI)
 
 Download
 ----------
