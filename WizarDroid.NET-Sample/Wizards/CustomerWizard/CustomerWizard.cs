@@ -22,7 +22,6 @@ namespace WizarDroid.NET_Sample.Wizards
                                                 .Create();
         }
 
-
         void OnWizardComplete()
         {
             var jsonObj = Newtonsoft.Json.JsonConvert.SerializeObject(Cust);
